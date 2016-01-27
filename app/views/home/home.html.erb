@@ -1,4 +1,8 @@
-<h1>Welcome To Test Login</h1>
-
-<%= ap current_user %>
-<%= ap @rules %>
+<h1>Welcome To Test Login, <%= current_user.username %>!</h1>
+<p>Logged in from <%= @ip %> which matched rule(s):</p>
+<% @rules.each do |r| -%>
+    <p>
+        <%= r.permission %> subnet: <%= r.cidr %>
+    </p>
+<% end -%>
+<%= link_to "Log out", logout_path, method: "delete" %>

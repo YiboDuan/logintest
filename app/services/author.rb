@@ -14,13 +14,12 @@ class Author
         usr.rules.each do |r|
             range = IPAddr.new r.cidr
             in_range = range.include?(ip)
-
             if r.deny? and in_range
-                return nil
+                return false
             end
 
             if r.allow? and not in_range
-                return nil
+                return false
             end
         end
 

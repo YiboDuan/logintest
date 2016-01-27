@@ -10,8 +10,18 @@ class SessionsController < ApplicationController
       session['user.id'] = uid
       redirect_to root_path
     else
-      flash.now[:danger] = 'Invalid user/password combination'
+      if uid == false
+        flash.now[:danger] = 'Did not match with rule(s)!'
+      else
+        flash.now[:danger] = 'Invalid user/password combination!'
+      end
       render 'new'
     end
+  end
+
+  def destroy
+    session.delete('user.id')
+    @current_user = nil
+    redirect_to root_path
   end
 end
