@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  CIDR: MyString
+  permission: MyString
+
+two:
+  CIDR: MyString
+  permission: MyString
